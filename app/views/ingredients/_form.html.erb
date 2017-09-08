@@ -1,5 +1,3 @@
-<h1>Add Ingredient</h1>
-
 <%= form_for [@recipe_ingredient] do |f|%>
   <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>
 

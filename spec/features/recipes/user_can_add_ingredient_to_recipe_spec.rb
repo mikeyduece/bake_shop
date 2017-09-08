@@ -14,7 +14,6 @@ feature "As a User" do
     select ingredient.name, from: 'recipe_ingredient[ingredient_id]'
     fill_in('Amount', with: 24.5)
     click_on('Add Ingredient')
-    save_and_open_page
     # expect(current_path).to eq(recipe_path("#{recipe.id}"))
     expect(page).to have_content('Bread Flour')
   end
