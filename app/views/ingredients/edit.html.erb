@@ -1,10 +1,11 @@
 <h1>Edit Recipe</h1>
 
-<%= form_for [@recipe_ingredient] do |f|%>
-  <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>
-
-  <%= f.label :amount %>
-  <%= f.number_field :amount, step: :any %>
-  
-  <%= f.submit 'Edit Ingredient' %>
+<% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+  <%= form_for recipe_ingredient do |f| %>
+    <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount, step: :any %>
+    
+    <%= f.submit 'Edit Ingredient' %>
+  <% end %>
 <% end %>

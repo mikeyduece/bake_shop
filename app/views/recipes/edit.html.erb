@@ -1,0 +1,9 @@
+<%= form_for @recipe do |recipe_form| %>
+  <%= recipe_form.fields_for :recipe_ingredients do |f| %>
+    <%#= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount, step: :any %>
+    
+    <%= f.submit 'Edit Ingredient' %>
+  <% end %>
+<% end %>

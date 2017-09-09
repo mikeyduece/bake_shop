@@ -16,11 +16,7 @@ class IngredientsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
   
-  def edit
-    @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = Ingredient.new
-    @recipe_ingredient = RecipeIngredient.new
-  end
+  
   private
   
   def ingredient_params
