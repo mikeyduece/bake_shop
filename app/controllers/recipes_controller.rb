@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
   end
+  
   def new
     @recipe = Recipe.new
   end
@@ -21,10 +22,18 @@ class RecipesController < ApplicationController
     @recipe_ingredients = @recipe.recipe_ingredient
   end
   
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.recipe_ingredients = RecipeIngredient.update_attributes(params[:recipe][:recipe_ingredients_attributes])
+    redirect_to recipe_path(@recipe)
+  end
+  
+  
   private
   
   def recipe_params
-    params.require(:recipe).permit(:name, :ingredient_ids => [])
-      # this is the key for your recipe to save ingredients 
+    params.require(:recipe).permit(:name,
+                                   :recipe_ingredients_attributes => [:id, :amount],
+                                   :ingredient_ids => [])
   end
 end
