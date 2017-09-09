@@ -7,12 +7,10 @@ feature "User" do
       recipe.ingredients = create_list(:ingredient, 3)
       recipe.recipe_ingredients = create_list(:recipe_ingredient, 3)
       visit recipe_path(recipe)
-
-      save_and_open_page
-      click_on('Edit Recipe', match: :first)
+      click_on('Edit Ingredient', match: :first)
       fill_in('Amount', with: 7.5)
-      click_on('Edit Ingredient')
       save_and_open_page
+      click_on('Update Amount')
 
       expect(page).to have_content(7.5)
     end
