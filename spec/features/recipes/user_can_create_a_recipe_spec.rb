@@ -12,13 +12,11 @@ feature "As a user" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       
       visit new_user_recipe_path(user)
-      
       expect(page).to have_content('New Recipe')
       
       fill_in('Name', with: 'Baguette')
-      
       click_on('Create Recipe')
-      save_and_open_page
+      
       expect(page).to have_content('Baguette Recipe')
     end
   end

@@ -13,7 +13,7 @@
         <td><%#= check_box_tag "recipe_ingredient_ids[]", recipe_ingredient.id %> </td>
         <td><%= recipe_ingredient.ing_name %></td>
         <td><%= recipe_ingredient.amount %> <%= link_to 'Edit Ingredient',
-                  edit_recipe_ingredient_ingredient_path(recipe_ingredient) %> </td>
+                  edit_user_recipe_ingredient_ingredient_path(current_user,recipe_ingredient) %> </td>
       </tr>
       <% end %>
   </tbody>

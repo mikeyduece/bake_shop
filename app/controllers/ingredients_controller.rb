@@ -13,7 +13,7 @@ class IngredientsController < ApplicationController
                                           ingredient_id: @ingredient.id,
                                           amount: params[:recipe_ingredient][:amount]
                                             )
-    redirect_to recipe_path(@recipe)
+    redirect_to user_recipe_path(current_user,@recipe)
   end  
   
   def edit
@@ -26,7 +26,7 @@ class IngredientsController < ApplicationController
     recipe_ingredient = RecipeIngredient.find(params[:recipe_id])
     recipe_ingredient.update(amount: params[:recipe_ingredient][:recipe_ingredients][:amount].to_f)
     # require "pry"; binding.pry
-    redirect_to recipe_path(@recipe)
+    redirect_to user_recipe_path(current_user,@recipe)
   end
   
   private
