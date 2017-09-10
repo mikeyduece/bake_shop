@@ -43,6 +43,7 @@ RSpec.configure do |config|
   
   config.after(:each) do
     DatabaseCleaner.clean
+    reset_session!
   end
   
   config.include Capybara::DSL
