@@ -3,6 +3,7 @@ require 'rails_helper'
 feature "User" do
   scenario "can be created" do
     visit new_user_path
+    save_and_open_page
     fill_in('Username', with: 'mike')
     fill_in('Password', with: 'password')
     click_on('Create Account')
