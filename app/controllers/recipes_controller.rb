@@ -1,8 +1,7 @@
 class RecipesController < ApplicationController
   
   def index
-    @user = current_user
-    @recipes = Recipe.all
+    @recipes = Recipe.owned_recipes(params[:user_id])
   end
   
   def new

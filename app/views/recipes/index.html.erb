@@ -2,7 +2,7 @@
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, user_recipes_path(recipe.owner_id, recipe) %></li>
+    <li><%= link_to recipe.name, user_recipe_path(current_user, recipe) %></li>
   <% end %>
 </ul>
 

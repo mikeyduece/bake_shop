@@ -11,4 +11,8 @@ class Recipe < ApplicationRecord
   def recipe_ingredient
     RecipeIngredient.where(recipe_id: id)
   end
+  
+  def self.owned_recipes(id)
+    where(owner_id: id)
+  end
 end
