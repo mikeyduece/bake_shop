@@ -19,5 +19,5 @@
   </tbody>
   </table>
 
-<%= link_to 'Add Ingredient', new_recipe_ingredient_path(@recipe) %><br><br>
-<%= link_to '<< Back to Recipes', recipes_path %>
+<%= link_to 'Add Ingredient', new_user_recipe_ingredient_path(current_user, @recipe) %><br><br>
+<%= link_to '<< Back to Recipes', user_recipes_path(current_user) %>

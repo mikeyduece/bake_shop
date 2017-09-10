@@ -8,12 +8,17 @@ require 'rails_helper'
 feature "As a user" do
   context 'I visit the new recipe page' do
     scenario 'and fill in the name field' do
-      visit new_recipe_path
+      user = User.create(username: 'mike', password: 'password')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      
+      visit new_user_recipe_path(user)
+      
       expect(page).to have_content('New Recipe')
       
       fill_in('Name', with: 'Baguette')
       
       click_on('Create Recipe')
+      save_and_open_page
       expect(page).to have_content('Baguette Recipe')
     end
   end

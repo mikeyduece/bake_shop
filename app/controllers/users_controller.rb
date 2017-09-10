@@ -17,9 +17,17 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  def update
+    # require "pry"; binding.pry
+    recipe_name = params[:user][:recipes][:name]
+    current_user.recipes << Recipe.create(name: recipe_name, owner_id: current_user.id)
+    recipe_id = current_user.recipes.last.id
+    redirect_to user_recipe_path(current_user, recipe_id)
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :recipes_attributes)
   end
 end

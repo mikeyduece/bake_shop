@@ -1,7 +1,6 @@
 <h1>Edit Recipe</h1>
 <%= form_for @recipe, remote: true do |recipe_form| %>
   <%= recipe_form.fields_for :recipe_ingredients do |f| %>
-  <%= require "pry"; binding.pry %>
     <%= f.label :amount %>
     <%= f.number_field :amount, step: :any %>
     
