@@ -2,7 +2,10 @@
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, user_recipe_path(current_user, recipe) %></li>
+    <li>
+      <%= link_to recipe.name, user_recipe_path(current_user, recipe) %>
+      <%= button_to 'Delete', user_recipe_path(current_user, recipe), method: :delete%>
+    </li>
   <% end %>
 </ul>
 
