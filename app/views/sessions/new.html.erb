@@ -1,12 +1,19 @@
-<h1>Login</h1>
+<nav class=' navbar navbar-default nav-pills'>
+  <div class="container-fluid">
+        <h1>Login</h1>
+        <div class="">
+          
+          <%= form_for(:session, url: login_path) do |f| %>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
 
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-
-  <%= f.submit 'Login' %> 
-<% end %>
-<%= button_to 'Create Account', new_user_path %> 
+            <%= f.submit 'Login' %> 
+          <% end %>
+          <span class='align-items-baseline'><%= button_to 'Create Account', new_user_path %> </span>
+      </div>
+      
+  </div>
+</nav>

@@ -22,10 +22,12 @@
   </head>
 
   <body>
+      
       <% if current_user %>
-        Welcome, <%= current_user.username %>!<br>
-        <%= link_to 'Logout', logout_path, method: :delete %>
+        Welcome, <%= current_user.username %>!
+         <%= button_to 'Logout', logout_path, method: :delete %>
       <% end %>
+      
     <%= yield %>
   </body>
 </html>

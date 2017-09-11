@@ -1,23 +1,28 @@
-<h1><%= @recipe.name %> Recipe</h1>
 
-  <table>
-    <tr>
-      <th>Ingredient Name</th>
-      <th>Amount in ounces</th>
-    </tr>
-    
-    <tbody>
-      <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      
-      <tr>
-        <td><%#= check_box_tag "recipe_ingredient_ids[]", recipe_ingredient.id %> </td>
-        <td><%= recipe_ingredient.ing_name %></td>
-        <td><%= recipe_ingredient.amount %> <%= link_to 'Edit Ingredient',
-                  edit_user_recipe_ingredient_ingredient_path(current_user,recipe_ingredient) %> </td>
-      </tr>
-      <% end %>
-  </tbody>
-  </table>
+  
+  <h1><%= @recipe.name %> Recipe</h1>
+  <div class="container" id='recipe_list'>
+    <div class=" table-responsive">
+      <div class="table-hover">
+        <table>
+          <tr>
+            <th>Ingredient Name</th>
+            <th>Amount in ounces</th>
+          </tr>
+            <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+            <tbody>
+            <tr>
+              <td><%= recipe_ingredient.ing_name %></td>
+              <td><%= recipe_ingredient.amount %><br> <%= button_to 'Edit Ingredient',
+                        edit_user_recipe_ingredient_ingredient_path(current_user,recipe_ingredient) %> </td>
+            </tr>
+          </tbody>
+            <% end %>
+        </table>
+      </div>
+    </div>
+</div>
 
-<%= link_to 'Add Ingredient', new_user_recipe_ingredient_path(current_user, @recipe) %><br><br>
-<%= link_to '<< Back to Recipes', user_recipes_path(current_user) %>
+
+<span  type='button' class='btn btn-primary'><%= link_to 'Add Ingredient', new_user_recipe_ingredient_path(current_user, @recipe) %></span> <br><br>
+<span  type='button' class='btn btn-primary'><%= link_to '<< Back to Recipes', user_recipes_path(current_user) %></span> 
