@@ -5,11 +5,15 @@ FactoryGirl.define do
     end
   end
   
+  factory :user do
+    username 'Mike Kalanty'
+    password 'password'
+  end
+  
   factory :recipe do 
     sequence :name do |n|
       "#{n}recipe"
     end
-    owner_id {1}
   end
   
   factory :recipe_ingredient do

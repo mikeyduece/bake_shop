@@ -15,4 +15,12 @@ class Recipe < ApplicationRecord
   def self.owned_recipes(id)
     where(owner_id: id)
   end
+  
+  def flours_amt(id)
+    RecipeIngredient.select('ingredients.name')
+      .joins(:ingredient)
+      .where(recipe_id: id)
+      .where('ingredients.name like ?', '%Flour%')
+      .sum(:amount)
+  end
 end
